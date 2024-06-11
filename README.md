@@ -11,9 +11,9 @@
 
 # To Be Implemented
 - Images % Correct to Total Images Per Trx
-- --Degraded Transactions--
-- --CSV auto detection--
-- --update requirements for specific libraries--
+- ~~Degraded Transactions~~
+- ~~CSV auto detection~~
+- ~~update requirements for specific libraries~~
 - specific data formating and filtering
 - exporting to report/downloadable graph
 
