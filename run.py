@@ -10,7 +10,7 @@ from tabulate import tabulate
 file_path= 'TRN-201 Transaction Research.csv'
 file_path_degraded = 'TRN-001 Transaction Details.csv'
 
-df = pd.read_csv(file_path, skiprows=8, on_bad_lines='skip')
+df = pd.read_csv(file_path, skiprows=8, on_bad_lines='skip', low_memory=False)
 
 
 
@@ -29,8 +29,15 @@ total_images = df.pivot_table(index='HalfHour', columns='Total Image', values='P
 
 total_images.loc['Total'] = total_images.sum()
 
+
+
+
+
 #print(total_images)
-print("\nTotal Images per Trx\n")
+first_trx = df['Trx Tmst'].min()
+last_trx = df['Trx Tmst'].max()
+
+print(f"\nTotal Images per Trx from {first_trx} to {last_trx}\n")
 print(tabulate(total_images, headers = 'keys', tablefmt='github'))
 
 
@@ -46,7 +53,7 @@ filtered_reverse_flush = df_simplified[df_simplified['Plaza'].isin(['LT', 'GWBU'
 
 reverse_flush = filtered_reverse_flush.pivot_table(index='Plaza', columns='Resl', values='Plaza', aggfunc='count', fill_value=0)
 
-print("\nReverse Flush\n")
+print(f"\nReverse Flush from {first_trx} to {last_trx}\n")
 print(tabulate(reverse_flush, headers='keys', tablefmt='github'))
 
 #degraded
@@ -58,7 +65,7 @@ degraded_transactions_filtered = df1_simple[df1_simple['Degraded'].isin(['Y', 'N
 
 degraded_transactions = degraded_transactions_filtered.pivot_table(index='Plaza', columns='Degraded', values='Plaza', aggfunc='count', fill_value=0)
 
-print("\nDegraded Transactions\n")
+print(f"\nDegraded Transactions\n")
 print(tabulate(degraded_transactions, headers = 'keys', tablefmt='github'))
 
 
