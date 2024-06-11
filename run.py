@@ -9,7 +9,8 @@ import glob
 #file_path= input("Please enter file path for CSV: ")
 #file_path = file_path[1:-1]
 
-file_path='C:/Users/aanantharajah/Downloads/PANYNJ_project/TRN-201 Transaction Research.csv'
+file_path='TRN-201 Transaction Research.csv'
+file_path_degraded = 'TRN-001 Transaction Details.csv'
 
 df = pd.read_csv(file_path, skiprows=8, on_bad_lines='skip')
 
