@@ -6,6 +6,9 @@
 - Move Script into Spotcheck folder.
 - Navigate to folder via Terminal and run Script.
 
+* For first time setup, run: *
+``` pip3 install requirements.txt ```
+
 # To Be Implemented
 - Images % Correct to Total Images Per Trx
 - Degraded Transactions
