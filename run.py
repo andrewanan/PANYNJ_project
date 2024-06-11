@@ -29,7 +29,7 @@ total_images = df.pivot_table(index='HalfHour', columns='Total Image', values='P
 total_images.loc['Total'] = total_images.sum()
 
 #print(total_images)
-print("Total Images per Trx\n")
+print("\nTotal Images per Trx\n")
 print(tabulate(total_images, headers = 'keys', tablefmt='github'))
 
 
