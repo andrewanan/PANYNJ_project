@@ -1,6 +1,6 @@
 # PANYNJ_project
 ## Intern Automation Project
-**WIP**
+**Made for Toll Host Version 1.1.117**
 ### Instructions
 - Download Transaction Research and Details Files to Spotcheck folder.
 - Move Script into Spotcheck folder.
