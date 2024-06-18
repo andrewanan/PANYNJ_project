@@ -1,4 +1,4 @@
-numpy @ file:///C:/b/abs_c1ywpu18ar/croot/numpy_and_numpy_base_1708638681471/work/dist/numpy-1.26.4-cp311-cp311-win_amd64.whl#sha256=5dfd3e04dc1c2826d3f404fdc7f93c097901f5da9b91f4f394f79d4e038ed81d
-matplotlib @ file:///C:/b/abs_e26vnvd5s1/croot/matplotlib-suite_1698692153288/work
-matplotlib-inline @ file:///C:/ci_311/matplotlib-inline_1676425798036/work
-tabulate @ file:///C:/b/abs_21rf8iibnh/croot/tabulate_1701354830521/work
+numpy==1.26.4
+matplotlib==3.7.1
+matplotlib-inline==0.1.6
+tabulate==0.9.0
