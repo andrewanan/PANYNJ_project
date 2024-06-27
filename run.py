@@ -91,6 +91,7 @@ print(tabulate(spurious_transactions, headers = 'keys', tablefmt='github'))
 #image correct by lane
 df3 = df = pd.read_csv(file_path, skiprows=8, on_bad_lines='skip', low_memory=False)
 
+#number of expected images per trx
 correct_values = {
     'BB': 4,
     'GB': 4,
