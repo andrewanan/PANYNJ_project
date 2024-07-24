@@ -33,7 +33,7 @@ image_count_total = df['Total Image'].astype
 
 #print(df.head())
 
-
+'''
 total_images = df.pivot_table(index='Time', columns='Total Image', values='Plaza', aggfunc='count', fill_value=0)
 
 total_images.loc['Total'] = total_images.sum()
@@ -43,8 +43,10 @@ total_images.loc['Total'] = total_images.sum()
 
 
 #print(total_images)
+'''
 first_trx = df['Trx Tmst'].min()
 last_trx = df['Trx Tmst'].max()
+'''
 
 print(f"\nTotal Images per Trx from {first_trx} to {last_trx}\n")
 print(tabulate(total_images, headers = 'keys', tablefmt='github'))
@@ -55,7 +57,7 @@ df['HalfHour'] = df['Trx Tmst'].dt.floor('30T')
 
 df['Plaza'].fillna('Unknown', inplace=True)
 df['Resl'].fillna('Unknown', inplace=True)
-
+'''
 #reverse flush
 df_simplified = df[['Plaza', 'Resl', 'Trx Tmst']].copy()
 filtered_reverse_flush = df_simplified[df_simplified['Plaza'].isin(['LT', 'GWBU'])]
