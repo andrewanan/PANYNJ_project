@@ -4,8 +4,10 @@ from tabulate import tabulate
 import os
 import shutil
 import re
+import seaborn as sns
 
 #made by Andrew Anantharajah
+#this code can be refactored, was learning as I went.
 
 print("Please ensure flush converted only file is named 'TRN-201 Transaction Research (1).csv' and all files are stored in the same folder as the .py script\n")
 input("Press ENTER to continue.\n")
@@ -154,6 +156,22 @@ for _, row in problem_lane.iterrows():
 for (plaza, lane), pivot_table in pivot_tables.items():
     print(f"\nTotal Images Per Trx for {plaza} Lane {lane}\n")
     print(tabulate(pivot_table, headers='keys', tablefmt='github', showindex=True))
+
+    # Remove 'Total' row
+    pivot_table = pivot_table[pivot_table.index != 'Total']
+
+    # Generate line graph
+    pivot_table.reset_index(inplace=True)
+    pivot_table_melted = pivot_table.melt(id_vars=['Trx Tmst'], var_name='Total Images', value_name='Count')
+    custom_palette = sns.color_palette("husl", n_colors=len(pivot_table_melted['Total Images'].unique()))
+    sns.lineplot(data=pivot_table_melted, x='Trx Tmst', y='Count', hue='Total Images', palette=custom_palette)
+    plt.title(f'Total Images Per Trx Over Time for {plaza} Lane {lane}')
+    plt.xlabel('Transaction Time')
+    plt.ylabel('Count')
+    plt.legend(title='Total Images')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
 
 
 def move_files():

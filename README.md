@@ -14,6 +14,6 @@
 ``` pip install requirements.txt ```
 
 ### Feature List (TBA)
-- Seaborn integration
+- Seaborn integration (DONE)
 
 
