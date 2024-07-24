@@ -157,13 +157,13 @@ for (plaza, lane), pivot_table in pivot_tables.items():
     print(f"\nTotal Images Per Trx for {plaza} Lane {lane}\n")
     print(tabulate(pivot_table, headers='keys', tablefmt='github', showindex=True))
 
-    # Remove 'Total' row
+    #Remove total row
     pivot_table = pivot_table[pivot_table.index != 'Total']
 
-    # Generate line graph
+    #line graph
     pivot_table.reset_index(inplace=True)
     pivot_table_melted = pivot_table.melt(id_vars=['Trx Tmst'], var_name='Total Images', value_name='Count')
-    custom_palette = sns.color_palette("husl", n_colors=len(pivot_table_melted['Total Images'].unique()))
+    custom_palette = sns.color_palette("husl", n_colors=len(pivot_table_melted['Total Images'].unique())) #custom pallete because default is hard to distinguish from one another
     sns.lineplot(data=pivot_table_melted, x='Trx Tmst', y='Count', hue='Total Images', palette=custom_palette)
     plt.title(f'Total Images Per Trx Over Time for {plaza} Lane {lane}')
     plt.xlabel('Transaction Time')
