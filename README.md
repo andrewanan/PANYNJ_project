@@ -1,7 +1,7 @@
 # PANYNJ_project
 ## Intern Automation Project
 **Made for Toll Host Version 1.1.117**
-
+# WIP
 ---
 
 ### Instructions
@@ -12,5 +12,8 @@
 
 * For first time setup, run: 
 ``` pip install requirements.txt ```
+
+### Feature List (TBA)
+- Seaborn integration
 
 

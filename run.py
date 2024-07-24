@@ -1,12 +1,13 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from tabulate import tabulate
-
-
+import os
+import shutil
+import re
 
 #made by Andrew Anantharajah
 
-print("Please ensure flush converted only file is named 'TRN-201 Transaction Research (1).csv' and all files are stored in the same folder as the .exe\n")
+print("Please ensure flush converted only file is named 'TRN-201 Transaction Research (1).csv' and all files are stored in the same folder as the .py script\n")
 input("Press ENTER to continue.\n")
 
 
@@ -155,4 +156,42 @@ for (plaza, lane), pivot_table in pivot_tables.items():
     print(tabulate(pivot_table, headers='keys', tablefmt='github', showindex=True))
 
 
+def move_files():
+    while True:
+        try: 
+            date = input('Enter date for spotcheck (YYYYMMDD): ')
+        except ValueError:
+            print("Date Format Not Recognized\n")
+            continue
+        if re.match(r"^\d{8}$", date):
+            break
+        print("Invalid date format. Please use YYYYMMDD.\n")
+
+    while True:
+        try:
+            spotcheck_number = input('Is this Spotcheck 1, 2, or 3?\n')
+        except ValueError:
+            print("Please enter 1, 2 or 3.\n")
+        if spotcheck_number in [ '1', '2', '3\n']:
+            break
+        print("Please enter 1, 2, or 3.\n")
+
+    folder_name = f"{date}_SC{spotcheck_number}"
+    os.makedirs(folder_name, exist_ok=True)
+
+    shutil.move(file_path, os.path.join(folder_name, os.path.basename(file_path)))
+    shutil.move(file_path_spurious, os.path.join(folder_name, os.path.basename(file_path_spurious)))
+    shutil.move(file_path_degraded, os.path.join(folder_name, os.path.basename(file_path_degraded)))
+
+    print(f"Files have been moved to: {folder_name}")
+
+
+response = (input("\nDo you want to move files to historical folder?\nPress ENTER for Yes."))
+
+
+if response in ['Y', 'y', 'yes', 'YES', 'Yes', ""]:
+    move_files()
+
+else:
+    print("Files not moved.")
 
