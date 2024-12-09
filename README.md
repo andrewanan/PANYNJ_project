@@ -4,14 +4,13 @@
 # WIP
 ---
 
-### Instructions
-- Install [anaconda distribution](https://www.anaconda.com/download/success) 
+### First Time Setup Instructions
+- Install [anaconda distribution](https://www.anaconda.com/download/success)
+- Create new "Spotcheck folder" on computer.
 - Download Transaction Research and Details Files to Spotcheck folder.
-- Move Script into Spotcheck folder.
+- Move run.py into Spotcheck folder.
 - Navigate to folder via Anaconda Terminal and run Script.
 
-* For first time setup, run: 
-``` pip install requirements.txt ```
 
 ### Feature List (TBA)
 - Seaborn integration (DONE)
